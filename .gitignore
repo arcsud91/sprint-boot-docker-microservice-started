@@ -1,0 +1,17 @@
+data
+
+config-server/target
+config-server/config-server.iml
+
+user-service/target
+user-service/user-service.iml
+
+service-registry/target
+service-registry/service-registry.iml
+
+chatiya-parent.iml
+
+.DS_Store
+
+.idea
+
