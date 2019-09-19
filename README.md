@@ -1,4 +1,5 @@
 # sprint-boot-docker-microservice-starter
+```
 .
 ├── README.md
 ├── api-gateway
@@ -75,3 +76,4 @@
         │       └── bootstrap.properties
         └── test
            └── java
+```
