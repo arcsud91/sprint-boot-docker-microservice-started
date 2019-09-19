@@ -24,6 +24,7 @@ services:
       - "28787:8787"
     depends_on:
       - config-server
+
   user-service:
     container_name: user-service
     build: ./user-service
@@ -38,3 +39,17 @@ services:
       while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server services to start-up...'; done;
       java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
       "
+
+  api-gateway:
+      container_name: api-gateway
+      build: ./api-gateway
+      ports:
+        - "8080:8080"
+      depends_on:
+        - config-server
+      entrypoint: /bin/sh
+      command: >
+        -c "
+        while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server services to start-up...'; done;
+        java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
+        "

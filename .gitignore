@@ -9,6 +9,9 @@ user-service/user-service.iml
 service-registry/target
 service-registry/service-registry.iml
 
+api-gateway/target
+api-gateway/api-gateway.iml
+
 chatiya-parent.iml
 
 .DS_Store
