@@ -1,11 +1,13 @@
-# sprint-boot-docker-microservice-starter
+# Spring cloud micro-services starter
+This project give the baseline boilerplate code for developers to kick-start with a spring boot micro-service application
+built with docker. 
 
+##Structure - Under the Hood
 ```
 .
 |-- README.md
 |-- api-gateway
 |   |-- Dockerfile
-|   |-- api-gateway.iml
 |   |-- pom.xml
 |   |-- src
 |      	|-- main
@@ -18,10 +20,8 @@
 |      	|       `-- bootstrap.properties
 |      	`-- test
 |           `-- java
-|-- chatiya-parent.iml
 |-- config-server
 |   |-- Dockerfile
-|   |-- config-server.iml
 |   |-- pom.xml
 |   |-- src
 |   |   |-- main
@@ -29,7 +29,6 @@
 |   |   |   |   `-- com
 |   |   |   |       `-- configserver
 |   |   |   |           `-- ConfigServerApplication.java
-|   |   |   |-- main2.iml
 |   |   |   `-- resources
 |   |   |       |-- application.properties
 |   |   |       `-- config-repo
@@ -47,14 +46,12 @@
 |-- service-registry
 |   |-- Dockerfile
 |   |-- pom.xml
-|   |-- service-registry.iml
 |   |-- src
 |       |-- main
 |       |   |-- java
 |       |   |   `-- com
 |       |   |       `-- registry
 |       |   |           `-- ServiceRegistryApplication.java
-|       |   |-- main.iml
 |       |   `-- resources
 |       |       `-- application.properties
 |       `-- test
@@ -79,10 +76,28 @@
         |   |           |   `-- UserRepository.java
         |   |           `-- util
         |   |               `-- CryptoUtil.java
-        |   |-- main1.iml
         |   `-- resources
         |       |-- bootstrap-docker.properties
         |       `-- bootstrap.properties
         `-- test
             `-- java
 ```
+
+### README.md
+This file which give all the info about the project.
+
+### pom.xml
+This is the parent pom for the project which is having all the modules listed in it.
+
+### docker-compose.yml
+This is a Docker compose which lists down all the container services expose their respective ports for interaction
+
+### data
+In data folder contains the db data file which store the db content. If this folder is not present in your repository, 
+you  need to manually create it so that docker can write data files into it. We have defined this storage path in 
+```docker-compose.yml``` file just to make sure we retain our data even if the container is killed.
+
+### api-gateway
+This sub-module acts as a gateway for all the request to the network and routes it to the respective microservice.
+
+#### More details to be added
